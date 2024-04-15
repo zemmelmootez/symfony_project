@@ -1,0 +1,19 @@
+{% block body %}
+<section class='articles'>
+{% for article in articles %}
+<article>
+<h2>{{article.title}} </h2>
+<div class="metadata">Edité le {{article.createdata | date("m/d/Y")}}
+à {{article.createdata | date("h/i")}}</div>
+<div class="content">
+<img src="{{article.image}}" alt="">
+{{article.content | raw }}
+<a href="{{ path('article_show', {id: article.id}) }}" class="btn
+btnprimary">Lire la suite</a>
+<a href="{{ path('article_delete', {id: article.id}) }}" class="btn
+btnprimary">Delete article</a>
+</div>
+</article>
+{% endfor %}
+</section>
+{% endblock %}
