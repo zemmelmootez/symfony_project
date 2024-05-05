@@ -1,0 +1,24 @@
+{# templates/patient/show.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Patient Details{% endblock %}
+
+{% block body %}
+    <h1>Patient Details</h1>
+    <dl>
+        <dt>Card Number</dt>
+        <dd>{{ patient.numCarte }}</dd>
+        <dt>Last Name</dt>
+        <dd>{{ patient.nom }}</dd>
+        <dt>First Name</dt>
+        <dd>{{ patient.prenom }}</dd>
+        <dt>Date of Birth</dt>
+        <dd>{{ patient.dateDeNaissance|date('Y-m-d') }}</dd>
+        <dt>Phone Number</dt>
+        <dd>{{ patient.numTel }}</dd>
+        <dt>Email</dt>
+        <dd>{{ patient.email }}</dd>
+    </dl>
+    <a href="{{ path('patient_index') }}">Back to list</a>
+{% endblock %}

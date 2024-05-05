@@ -1,0 +1,24 @@
+{# templates/consultation/show.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Consultation Details{% endblock %}
+
+{% block body %}
+    <div class="container mt-5">
+        <h1 class="mb-4">Consultation Details</h1>
+        <dl class="row">
+            <dt class="col-sm-3">ID</dt>
+            <dd class="col-sm-9">{{ consultation.id }}</dd>
+            <dt class="col-sm-3">Patient's Card Number</dt>
+            <dd class="col-sm-9">{{ consultation.numCarte }}</dd>
+            <dt class="col-sm-3">Date</dt>
+            <dd class="col-sm-9">{{ consultation.date }}</dd>
+            <dt class="col-sm-3">Weight</dt>
+            <dd class="col-sm-9">{{ consultation.poids }}</dd>
+            <dt class="col-sm-3">Blood Pressure</dt>
+            <dd class="col-sm-9">{{ consultation.tension }}</dd>
+        </dl>
+        <a href="{{ path('consultation_index') }}" class="btn btn-secondary">Back to List</a>
+    </div>
+{% endblock %}

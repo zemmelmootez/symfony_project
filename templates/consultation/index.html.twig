@@ -1,0 +1,44 @@
+{# templates/consultation/index.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block title %}List of Consultations{% endblock %}
+
+{% block body %}
+    <div class="container mt-5">
+        <h1 class="mt-4">List of Consultations</h1>
+        <a  href="{{ path('consultation_new') }}" class="btn btn-success my-4">Add New Consultation</a>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Patient's Card Number</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Weight</th>
+                    <th scope="col">Blood Pressure</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for consultation in consultations %}
+                    <tr>
+                        <td>{{ consultation.id }}</td>
+                        <td>{{ consultation.numCarte }}</td>
+                        <td>{{ consultation.date }}</td>
+                        <td>{{ consultation.poids }}</td>
+                        <td>{{ consultation.tension }}</td>
+                        <td>
+                            <a href="{{ path('consultation_show', {'id': consultation.id}) }}" class="btn btn-primary btn-sm">Show</a>
+                            <a href="{{ path('consultation_edit', {'id': consultation.id}) }}" class="btn btn-warning btn-sm">Edit</a>
+                            <form action="{{ path('consultation_delete', {'id': consultation.id}) }}" method="post" class="d-inline">
+                                <input type="hidden" name="_method" value="DELETE">
+                                <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ consultation.id) }}">
+                                <button type="submit" class="btn btn-danger btn-sm" >Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

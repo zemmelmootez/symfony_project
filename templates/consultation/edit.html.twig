@@ -1,0 +1,19 @@
+{# templates/consultation/edit.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Consultation{% endblock %}
+
+{% block body %}
+    <div class="container mt-5">
+        <h1 class="mb-4">Edit Consultation</h1>
+        <div class="row">
+            <div class="col-md-6">
+                {{ form_start(form) }}
+                {{ form_widget(form) }}
+                <button type="submit" class="btn btn-primary mt-3">Update</button>
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}

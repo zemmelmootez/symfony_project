@@ -2,26 +2,25 @@
 
 namespace App\Form;
 
-use App\Entity\User;
+use App\Entity\Rdv;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class RegistrationFormType extends AbstractType
+class RdvType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('email')
-            ->add('roles')
-            ->add('password')
+            ->add('NumRdv')
+            ->add('date')
         ;
     }
 
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => User::class,
+            'data_class' => Rdv::class,
         ]);
     }
 }

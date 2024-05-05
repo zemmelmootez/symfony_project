@@ -5,7 +5,8 @@ namespace App\DataFixtures;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use App\Entity\Patient;
-class AppFixtures extends Fixture
+
+class PatientFixtures extends Fixture
 {
     public function load(ObjectManager $manager): void
     {
@@ -20,5 +21,7 @@ class AppFixtures extends Fixture
 
             $manager->persist($patient);
         }
+
+        $manager->flush();
     }
 }
